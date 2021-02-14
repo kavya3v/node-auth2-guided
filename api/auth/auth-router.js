@@ -62,7 +62,7 @@ function generateToken(user){
   const payload={ 
     subject: user.id,
     username:user.username,
-    role:user.role
+    role:user.role //from the database
   };
 //when this token is considered expired
   const options={

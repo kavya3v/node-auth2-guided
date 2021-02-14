@@ -2,10 +2,12 @@
 //this function takes in 'role' parameter and returns a new function
 module.exports= role=> {
     return function(req,res,next){
-        if(((req?.decodedJWT?.role) || "") === role){
+        console.log('my req',req.decodedJWT)
+        if((req?.decodedJWT?.role || "") === role){
             next()
         }else{
-            res.status(403).json({message: "sorry not authorized"})
+            //forbidden access - error.
+            res.status(403).json({message: "sorry not authorized here"})
         }
     }
 }
